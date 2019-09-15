@@ -1,4 +1,4 @@
-﻿#StateOfWarTrainer
+#StateOfWarTrainer
 
 1) This program read values from game and update them by user input.
 2) This program can freeze values. *Every 1s writing to process memory by last entered input.
