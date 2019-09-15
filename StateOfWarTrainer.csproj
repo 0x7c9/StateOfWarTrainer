@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Checker.cs" />
+    <Compile Include="Core\Experimental.cs" />
     <Compile Include="frm\Gui.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <Content Include="Readme!.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
