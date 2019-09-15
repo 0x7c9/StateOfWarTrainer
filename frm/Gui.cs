@@ -34,6 +34,10 @@ namespace StateOfWarTrainer.frm
 		{
 			if (!trainer.GetGameProcess())
 			{
+				if (updater.Enabled == true)
+				{
+					updater.Enabled = false;
+				}
 				MessageBox.Show("Sorry game is not runnning!\nPlease run game then open this trainer!", "Game not running!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
 				Environment.Exit(1);
 			}
@@ -50,13 +54,13 @@ namespace StateOfWarTrainer.frm
 			TextBox textBox = (TextBox)sender;
 			int givenValue = 0;
 			int.TryParse(textBox.Text, out givenValue);
-			if (givenValue > 0 && givenValue != 0 && !(givenValue > 99999))
+			if (!(givenValue > 99999))
 			{
 				trainer.Money = givenValue;
 			}
 			else
 			{
-				MessageBox.Show("The given nmber is smaller than 100 or greater than 99999! Please set number in this range: 0 - 99999. And it must not be text!", "Invalid range!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+				MessageBox.Show("Please set number in this range: 0 - 99999. And it must not be text!", "Invalid range!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
 			}
 		}
 
