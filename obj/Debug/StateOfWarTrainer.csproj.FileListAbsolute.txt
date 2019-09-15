@@ -1,9 +1,0 @@
-C:\Users\0x7c9\source\repos\StateOfWarTrainer\bin\Debug\StateOfWarTrainer.exe
-C:\Users\0x7c9\source\repos\StateOfWarTrainer\bin\Debug\StateOfWarTrainer.pdb
-C:\Users\0x7c9\source\repos\StateOfWarTrainer\obj\Debug\StateOfWarTrainer.csprojAssemblyReference.cache
-C:\Users\0x7c9\source\repos\StateOfWarTrainer\obj\Debug\StateOfWarTrainer.csproj.CoreCompileInputs.cache
-C:\Users\0x7c9\source\repos\StateOfWarTrainer\obj\Debug\StateOfWarTrainer.exe
-C:\Users\0x7c9\source\repos\StateOfWarTrainer\obj\Debug\StateOfWarTrainer.pdb
-C:\Users\0x7c9\source\repos\StateOfWarTrainer\obj\Debug\StateOfWarTrainer.frm.Gui.resources
-C:\Users\0x7c9\source\repos\StateOfWarTrainer\obj\Debug\StateOfWarTrainer.Properties.Resources.resources
-C:\Users\0x7c9\source\repos\StateOfWarTrainer\obj\Debug\StateOfWarTrainer.csproj.GenerateResource.cache
