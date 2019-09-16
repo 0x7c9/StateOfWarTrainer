@@ -10,25 +10,31 @@ namespace StateOfWarTrainer.Core
 	class Checker
 	{
 
+		private static string[] gameVersions = new string[2] {
+			"928af98adb4f5fde9dcb9fac7bf97c21302bc", //0. State of War cracked by SoW-CZ-NoCD.exe
+			"391127d7fd55cb72177cdd3be877d12d4387ad",//1. State of War - Warmonger cracked by 0x7c9 
+		};
+
 		/// <summary>
 		/// This check file by hash :). We must know exact process. And this can help.
 		/// </summary>
 		/// <param name="path"></param>
 		/// <returns></returns>
-		public static bool IsGameProcess(string path)
+		public static bool DetermineVersion(string path, ref int gameID)
 		{
-			string result = string.Empty;
-			string target = "928af98adb4f5fde9dcb9fac7bf97c21302bc"; //This is a hash of game file, main exe.
-			byte[] hash = SHA1.Create().ComputeHash(File.ReadAllBytes(path));
-			foreach (var b in hash)
+			string hashOfRunningProcces = Utils.GetSHAHash(File.ReadAllBytes(path));
+			for (int i = 0; i < gameVersions.Length; i++)
 			{
-				result += b.ToString("x");
-			}
-			if (result == target)
-			{
-				return true;
+				if (hashOfRunningProcces == gameVersions[i])
+				{
+					gameID = i;
+					return true;
+				}			
 			}
 			return false;
 		}
+
+
+
 	}
 }

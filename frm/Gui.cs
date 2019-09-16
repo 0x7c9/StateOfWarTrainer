@@ -5,8 +5,8 @@ using System.Windows.Forms;
 namespace StateOfWarTrainer.frm
 {
 	public partial class Gui : Form
-	{
-		private const string progName = "State Of War Warmonger - Money changer by 0x7c9";
+	{	
+		private const string progName = "- Trainer by 0x7c9";
 		private Trainer trainer;
 		private Timer updater = new Timer();
 		private Timer freezer = new Timer();
@@ -28,7 +28,8 @@ namespace StateOfWarTrainer.frm
 				updater.Tick += Updater_Tick;
 			}
 			InitializeComponent(); //Init form
-			this.Text = progName; //Set title
+			this.Text = trainer.gameVersion+progName; //Set title
+			this.lblTitle.Text = trainer.gameVersion; //Set groupbox name
 			GetValues(); //Get initial values
 		}
 

@@ -30,6 +30,10 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Gui));
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.lblTipFreeze = new System.Windows.Forms.Label();
+			this.checkBox1 = new System.Windows.Forms.CheckBox();
+			this.txtResearch = new System.Windows.Forms.TextBox();
+			this.lblResearch = new System.Windows.Forms.Label();
 			this.txtFighters = new System.Windows.Forms.TextBox();
 			this.lblFighters = new System.Windows.Forms.Label();
 			this.txtTroopers = new System.Windows.Forms.TextBox();
@@ -40,13 +44,9 @@
 			this.lblBombarders = new System.Windows.Forms.Label();
 			this.txtMoney = new System.Windows.Forms.TextBox();
 			this.lblMoney = new System.Windows.Forms.Label();
-			this.blbTitle = new System.Windows.Forms.Label();
+			this.lblTitle = new System.Windows.Forms.Label();
 			this.menu = new System.Windows.Forms.MenuStrip();
 			this.btnAbout = new System.Windows.Forms.ToolStripMenuItem();
-			this.txtResearch = new System.Windows.Forms.TextBox();
-			this.lblResearch = new System.Windows.Forms.Label();
-			this.checkBox1 = new System.Windows.Forms.CheckBox();
-			this.lblTipFreeze = new System.Windows.Forms.Label();
 			this.groupBox1.SuspendLayout();
 			this.menu.SuspendLayout();
 			this.SuspendLayout();
@@ -72,7 +72,49 @@
 			this.groupBox1.Size = new System.Drawing.Size(318, 234);
 			this.groupBox1.TabIndex = 0;
 			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "s";
+			this.groupBox1.Text = "Settings";
+			// 
+			// lblTipFreeze
+			// 
+			this.lblTipFreeze.AutoSize = true;
+			this.lblTipFreeze.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.lblTipFreeze.Location = new System.Drawing.Point(7, 207);
+			this.lblTipFreeze.Name = "lblTipFreeze";
+			this.lblTipFreeze.Size = new System.Drawing.Size(253, 13);
+			this.lblTipFreeze.TabIndex = 13;
+			this.lblTipFreeze.Text = "*This choice can keep values from change.";
+			// 
+			// checkBox1
+			// 
+			this.checkBox1.AutoSize = true;
+			this.checkBox1.Location = new System.Drawing.Point(10, 187);
+			this.checkBox1.Name = "checkBox1";
+			this.checkBox1.Size = new System.Drawing.Size(110, 17);
+			this.checkBox1.TabIndex = 12;
+			this.checkBox1.Text = "Freeze values!";
+			this.checkBox1.UseVisualStyleBackColor = true;
+			this.checkBox1.CheckedChanged += new System.EventHandler(this.FreezeValuesChanged);
+			// 
+			// txtResearch
+			// 
+			this.txtResearch.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.txtResearch.ForeColor = System.Drawing.Color.Blue;
+			this.txtResearch.Location = new System.Drawing.Point(205, 155);
+			this.txtResearch.MaxLength = 5;
+			this.txtResearch.Name = "txtResearch";
+			this.txtResearch.Size = new System.Drawing.Size(106, 20);
+			this.txtResearch.TabIndex = 11;
+			this.txtResearch.TextChanged += new System.EventHandler(this.ResearchChanged);
+			// 
+			// lblResearch
+			// 
+			this.lblResearch.AutoSize = true;
+			this.lblResearch.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.lblResearch.Location = new System.Drawing.Point(7, 158);
+			this.lblResearch.Name = "lblResearch";
+			this.lblResearch.Size = new System.Drawing.Size(61, 13);
+			this.lblResearch.TabIndex = 10;
+			this.lblResearch.Text = "Research:";
 			// 
 			// txtFighters
 			// 
@@ -179,16 +221,16 @@
 			this.lblMoney.TabIndex = 0;
 			this.lblMoney.Text = "Money:";
 			// 
-			// blbTitle
+			// lblTitle
 			// 
-			this.blbTitle.AutoSize = true;
-			this.blbTitle.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.blbTitle.ForeColor = System.Drawing.Color.Black;
-			this.blbTitle.Location = new System.Drawing.Point(13, 24);
-			this.blbTitle.Name = "blbTitle";
-			this.blbTitle.Size = new System.Drawing.Size(297, 19);
-			this.blbTitle.TabIndex = 1;
-			this.blbTitle.Text = "State Of War Warmonger - Trainer";
+			this.lblTitle.AutoSize = true;
+			this.lblTitle.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.lblTitle.ForeColor = System.Drawing.Color.Black;
+			this.lblTitle.Location = new System.Drawing.Point(13, 24);
+			this.lblTitle.Name = "lblTitle";
+			this.lblTitle.Size = new System.Drawing.Size(90, 19);
+			this.lblTitle.TabIndex = 1;
+			this.lblTitle.Text = "$GameName\r\n";
 			// 
 			// menu
 			// 
@@ -207,54 +249,12 @@
 			this.btnAbout.Text = "About..";
 			this.btnAbout.Click += new System.EventHandler(this.BtnAbout_Click);
 			// 
-			// txtResearch
-			// 
-			this.txtResearch.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.txtResearch.ForeColor = System.Drawing.Color.Blue;
-			this.txtResearch.Location = new System.Drawing.Point(205, 155);
-			this.txtResearch.MaxLength = 5;
-			this.txtResearch.Name = "txtResearch";
-			this.txtResearch.Size = new System.Drawing.Size(106, 20);
-			this.txtResearch.TabIndex = 11;
-			this.txtResearch.TextChanged += new System.EventHandler(this.ResearchChanged);
-			// 
-			// lblResearch
-			// 
-			this.lblResearch.AutoSize = true;
-			this.lblResearch.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.lblResearch.Location = new System.Drawing.Point(7, 158);
-			this.lblResearch.Name = "lblResearch";
-			this.lblResearch.Size = new System.Drawing.Size(61, 13);
-			this.lblResearch.TabIndex = 10;
-			this.lblResearch.Text = "Research:";
-			// 
-			// checkBox1
-			// 
-			this.checkBox1.AutoSize = true;
-			this.checkBox1.Location = new System.Drawing.Point(10, 187);
-			this.checkBox1.Name = "checkBox1";
-			this.checkBox1.Size = new System.Drawing.Size(110, 17);
-			this.checkBox1.TabIndex = 12;
-			this.checkBox1.Text = "Freeze values!";
-			this.checkBox1.UseVisualStyleBackColor = true;
-			this.checkBox1.CheckedChanged += new System.EventHandler(this.FreezeValuesChanged);
-			// 
-			// lblTipFreeze
-			// 
-			this.lblTipFreeze.AutoSize = true;
-			this.lblTipFreeze.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.lblTipFreeze.Location = new System.Drawing.Point(7, 207);
-			this.lblTipFreeze.Name = "lblTipFreeze";
-			this.lblTipFreeze.Size = new System.Drawing.Size(253, 13);
-			this.lblTipFreeze.TabIndex = 13;
-			this.lblTipFreeze.Text = "*This choice can keep values from change.";
-			// 
 			// Gui
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(346, 291);
-			this.Controls.Add(this.blbTitle);
+			this.Controls.Add(this.lblTitle);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.menu);
 			this.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -278,7 +278,7 @@
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.TextBox txtMoney;
 		private System.Windows.Forms.Label lblMoney;
-		private System.Windows.Forms.Label blbTitle;
+		private System.Windows.Forms.Label lblTitle;
 		private System.Windows.Forms.MenuStrip menu;
 		private System.Windows.Forms.ToolStripMenuItem btnAbout;
 		private System.Windows.Forms.TextBox txtTroopers;

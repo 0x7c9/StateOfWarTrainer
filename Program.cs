@@ -17,15 +17,17 @@ namespace StateOfWarTrainer
 		static void Main(string[] args)
 		{
 
-			if (args.Length == 2)
+			if (args.Length == 3)
 			{
 				if (args[0] == "-experimental")
 				{
 					int pid = int.Parse(args[1]);
+					int gameID = int.Parse(args[2]);
 					if (pid != 0)
 					{
 						Experimental.isExperimental = true;
 						Experimental.PID = pid;
+						Experimental.gameID = gameID;
 					}
 				}
 			}
