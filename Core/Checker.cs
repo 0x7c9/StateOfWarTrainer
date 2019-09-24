@@ -10,9 +10,10 @@ namespace StateOfWarTrainer.Core
 	class Checker
 	{
 
-		private static string[] gameVersions = new string[2] {
+		private static string[] gameVersions = new string[3] {
 			"928af98adb4f5fde9dcb9fac7bf97c21302bc", //0. State of War cracked by SoW-CZ-NoCD.exe
 			"391127d7fd55cb72177cdd3be877d12d4387ad",//1. State of War - Warmonger cracked by 0x7c9 
+			"312dbcfdf1c854c532a274b8287897bc2fb8b5f" //2. State of War Warmonger Steam Version
 		};
 
 		/// <summary>

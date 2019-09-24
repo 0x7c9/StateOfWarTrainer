@@ -10,13 +10,13 @@ namespace StateOfWarTrainer.Core
 	unsafe class Trainer
 	{
 		internal string gameVersion;
-		internal string[] supportedGames = new string[2] { "State of War", "State of War - Warmonger" };
+		internal string[] supportedGames = new string[3] { "State of War", "State of War - Warmonger", "State of War Warmonger" };
 		private const int dwDesiredAcces = 0x1F0FFF; //This is full acces flag for open procsess.
 		private void* gameProcAddr = null;
 
 		/* State of war memory addresses */
 		private int[] sowAddresess = new int[6]
- {
+	{
 			0x0070CB04, //0. Money
 			0x006BAF78, //1. Bombarders
 			0x006BAF84, //2. Trojans
@@ -27,7 +27,7 @@ namespace StateOfWarTrainer.Core
 
 		/* State of war - warmonger memory addresses */
 		private int[] sowwAddresess = new int[6]
-	 {
+		{
 			0x00708828, //0. Money
 			0x006B6CE0, //1. Bombarders
 			0x006B6CEC, //2. Trojans
@@ -35,6 +35,17 @@ namespace StateOfWarTrainer.Core
 			0x006B6CF0, //4. Fighters
 			0x0070881C, //5. Research
 	 };
+
+		/* State of war - warmonger steam version  memory adresses*/
+		private int[] sowwAdresessSteam = new int[6]
+		{
+		0x00458F70,	//0. Money
+		0x005527F0,	//1. Bombarders
+		0x005527FC,	//2. Trojans
+		0x005527F8,	//3. Troopers
+		0x00552800,	//4. Fighters
+		0x00458F7C,	//5. Research
+		};
 
 		private int[] gameAddresess;
 
@@ -69,7 +80,7 @@ namespace StateOfWarTrainer.Core
 			Process[] allProcesses = Process.GetProcesses();
 			try
 			{
-				Process game = allProcesses.Where(x => x.ProcessName == supportedGames[0] || x.ProcessName == supportedGames[1]).Single();
+				Process game = allProcesses.Where(x => x.ProcessName == supportedGames[0] || x.ProcessName == supportedGames[1] || x.ProcessName == supportedGames[2]).Single();
 				if (game != null)
 				{
 					int gameID = 0;
@@ -105,6 +116,9 @@ namespace StateOfWarTrainer.Core
 					break;
 				case 1:
 					gameAddresess = sowwAddresess;
+					break;
+				case 2:
+					gameAddresess = sowwAdresessSteam;
 					break;
 			}
 		}
@@ -185,6 +199,9 @@ namespace StateOfWarTrainer.Core
 		/// <returns></returns>
 		private int GetValue(int addr)
 		{
+			if (GetGameProcess() != true)
+				return 0;
+
 			byte[] buffer = new byte[sizeof(int)];
 			int readed = 0;
 			int result = -1;
@@ -207,6 +224,9 @@ namespace StateOfWarTrainer.Core
 		/// <param name="addr"></param>
 		private void SetValue(int value, int addr)
 		{
+			if (GetGameProcess() != true)
+				return;
+
 			byte[] buffer = BitConverter.GetBytes(value);
 			int writted = 0;
 			bool ok = WinApi.WriteProcessMemory(gameProcAddr, addr, buffer, buffer.Length, out writted);
